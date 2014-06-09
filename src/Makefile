@@ -1,3 +1,5 @@
+#!/usr/bin/make -f
+
 CC      = g++
 #PROF    = -p
 
@@ -98,8 +100,10 @@ indentclean:
 	rm *.c~ *.h~
 
 o/%.o: %.c
-	echo "  Compiling $@....";
-	$(CC) -c $(C_FLAGS) $< -o $@
+	echo -n "  $(CC) -> Building Object: $@ ...";
+	$(CC) -c $(C_FLAGS) $< -o $@;
+	echo " done";
+
 
 .c.o: mud.h
 	$(CC) -c $(C_FLAGS) $<
