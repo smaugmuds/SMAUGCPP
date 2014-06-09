@@ -1,5 +1,23 @@
 #!/usr/bin/make -f
 
+ ############################################################################
+ # [S]imulated [M]edieval [A]dventure multi[U]ser [G]ame      |   \\._.//   #
+ # -----------------------------------------------------------|   (0...0)   #
+ # SMAUG 1.4 (C) 1994, 1995, 1996, 1998  by Derek Snider      |    ).:.(    #
+ # -----------------------------------------------------------|    {o o}    #
+ # SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,      |   / ' ' \   #
+ # Scryn, Rennard, Swordbearer, Gorog, Grishnakh, Nivek,      |~'~.VxvxV.~'~#
+ # Tricops and Fireblade                                      |             #
+ # ------------------------------------------------------------------------ #
+ # Merc 2.1 Diku Mud improvments copyright (C) 1992, 1993 by Michael        #
+ # Chastain, Michael Quan, and Mitchell Tse.                                #
+ # Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,          #
+ # Michael Seifert, Hans Henrik St{rfeldt, Tom Madsen, and Katja Nyboe.     #
+ # Win32 port by Nick Gammon                                                #
+ # ------------------------------------------------------------------------ #
+ #                             SMAUG Makefile                               #
+ ############################################################################
+
 CC      = g++
 #PROF    = -p
 
@@ -53,43 +71,43 @@ all:
 
 ifdef CYGWIN
 smaug: $(O_FILES)
-	rm -f smaug.exe
+	rm -f ../smaug.exe
 	dlltool --export-all --output-def smaug.def $(O_FILES)
-	dlltool --dllname smaug.exe --output-exp smaug.exp --def smaug.def
-	$(CC) -o smaug.exe $(O_FILES) smaug.exp $(L_FLAGS)
+	dlltool --dllname ../smaug.exe --output-exp smaug.exp --def smaug.def
+	$(CC) -o ../smaug.exe $(O_FILES) smaug.exp $(L_FLAGS)
 	@echo "Generating dependency file ...";
 	@$(CC) -MM $(C_FLAGS) $(C_FILES) > dependencies.d
 	@perl -pi -e 's.^([a-z]).o/$$1.g' dependencies.d
 	@echo "Done compiling mud.";
-	chmod g+w smaug.exe
-	chmod a+x smaug.exe
+	chmod g+w ../smaug.exe
+	chmod a+x ../smaug.exe
 	chmod g+w $(O_FILES)
 
 clean:
-	@rm -f o/*.o smaug.exe dependencies.d resolver.exe resolver.o *~
+	@rm -f o/*.o ../smaug.exe dependencies.d ../resolver.exe resolver.o *~
 
 else
 smaug: $(O_FILES)
-	rm -f smaug
-	$(CC) -export-dynamic -o smaug $(O_FILES) $(L_FLAGS)
+	rm -f ../smaug
+	$(CC) -export-dynamic -o ../smaug $(O_FILES) $(L_FLAGS)
 	@echo "Generating dependency file ...";
 	@$(CC) -MM $(C_FLAGS) $(C_FILES) > dependencies.d
 	@perl -pi -e 's.^([a-z]).o/$$1.g' dependencies.d
 	@echo "Done compiling mud.";
-	chmod g+w smaug
-	chmod a+x smaug
+	chmod g+w ../smaug
+	chmod a+x ../smaug
 	chmod g+w $(O_FILES)
 
 clean:
-	@rm -f o/*.o smaug dependencies.d resolver resolver.o *~
+	@rm -f o/*.o ../smaug dependencies.d ../resolver resolver.o *~
 endif
 
 dns: resolver.o
-	rm -f resolver
-	$(CC) $(D_FLAGS) -o resolver resolver.o
+	rm -f ../resolver
+	$(CC) $(D_FLAGS) -o ../resolver resolver.o
 	@echo "Done compiling DNS resolver.";
-	chmod g+w resolver
-	chmod a+x resolver
+	chmod g+w ../resolver
+	chmod a+x ../resolver
 	chmod g+w resolver.o
 
 indent:
