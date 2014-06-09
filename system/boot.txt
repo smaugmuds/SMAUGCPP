@@ -1,0 +1,7 @@
+[*****] BOOT: ---------------------[ Boot Log ]--------------------
+[*****] BOOT: load_room_reset: gods.are (1) 'M': mobile 10415 doesn't exist.
+[*****] BOOT: load_room_reset: gods.are (1) 'M': mobile 10415 doesn't exist.
+[*****] BOOT: load_room_reset: gods.are (1) 'M': mobile 10415 doesn't exist.
+[*****] BOOT: load_room_reset: gods.are (1) 'M': mobile 21045 doesn't exist.
+[*****] BOOT: load_room_reset: gods.are (1) 'M': mobile 21045 doesn't exist.
+[*****] BOOT: load_room_reset: gods.are (1) 'M': mobile 21045 doesn't exist.
