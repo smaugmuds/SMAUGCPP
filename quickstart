@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd area
+../src/smaug 4000
+
